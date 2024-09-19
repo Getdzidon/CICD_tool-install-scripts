@@ -37,3 +37,44 @@ sudo ln -s /opt/tomcat9/bin/shutdown.sh /usr/bin/stoptomcat
 sudo starttomcat
 
 echo "Tomcat installation complete!"
+
+
+# Function to modify context.xml
+modify_context_xml() {
+  context_xml_file="/opt/tomcat9/webapps/manager/META-INF/context.xml"
+  cp "$context_xml_file" "$context_xml_file.bak"
+  echo "Modifying $context_xml_file ..."
+
+  # Comment out the <Valve> element in context.xml
+  sed -i '/<Valve className="org.apache.catalina.valves.RemoteAddrValve"/ {N; s#<Valve className="org.apache.catalina.valves.RemoteAddrValve".*allow="127\\.\\d+\\.\\d+\\.\\d+|::1|0:0:0:0:0:0:0:1" />#<!--\n &\n-->#; }' "$context_xml_file"
+
+  echo "$context_xml_file has been modified."
+}
+ 
+# separating instalation with modifications 
+
+# Function to modify the tomcat-users.xml file
+modify_tomcat_users_xml() {
+  tomcat_users_xml_file="/opt/tomcat9/conf/tomcat-users.xml"
+
+  if [ -f "$tomcat_users_xml_file" ]; then
+    # Backup the original file
+    cp "$tomcat_users_xml_file" "$tomcat_users_xml_file.bak"
+    echo "Modifying $tomcat_users_xml_file ..."
+
+    # Add new user lines before the closing </tomcat-users> tag
+    sed -i '/<\/tomcat-users>/i\
+ <user username="admin" password="admin" roles="manager-gui, manager-script, admin-gui, manager-status"/>\
+ <user username="jomacs" password="jomacs" roles="manager-script, manager-gui, admin-gui"/>' "$tomcat_users_xml_file"
+
+    echo "$tomcat_users_xml_file has been modified."
+  else
+    echo "tomcat-users.xml file not found!"
+  fi
+}
+
+# Call the functions
+modify_context_xml
+modify_tomcat_users_xml
+
+echo "Tomcat installation and all modifications complete!"

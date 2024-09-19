@@ -7,6 +7,7 @@
 sudo apt update -y
 sudo apt upgrade -y
 
+cd /opt
 # Install Java 11 and Git
 sudo apt install openjdk-11-jdk git -y
 
@@ -19,25 +20,25 @@ cd /opt
 sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.8/binaries/apache-maven-3.9.8-bin.tar.gz
 sudo tar -xvzf apache-maven-3.9.8-bin.tar.gz
 
-# Remove zip file and rename the extracted directory to 'maven'
+# Remove zip file and rename the extracted directory to maven
 sudo rm -rf apache-maven-3.9.8-bin.tar.gz
-sudo mv apache-maven-3.9.8 /opt/maven
+sudo mv apache-maven-3.9.8/ maven
 
-# Set environment variables for Maven
+# Set environmental variables for Maven
 echo "export M2_HOME=/opt/maven" | sudo tee -a /home/ubuntu/.bashrc
 echo "export PATH=\$PATH:\$M2_HOME/bin" | sudo tee -a /home/ubuntu/.bashrc
 
 # Notify user to source the .bashrc file manually
-echo "Please run 'source ~/.bashrc' or restart your session to apply the changes."
+echo "Please run 'source /home/ubuntu/.bashrc' or restart your session to apply the changes., then run 'mvn -version' "
 
 # Verify Maven installation (will work if environment variables are applied)
-source ~/.bashrc
+source /home/ubuntu/.bashrc
 mvn -version
 
 echo "Maven installation complete!"
 
-# if you receive the error "mavin.sh: line 34: mvn: command not found", 
-# rerun "source ~/.bashrc" and "mvn -version"
+# if you receive the error "mavin.sh: line 36: mvn: command not found", 
+# rerun "source /home/ubuntu/.bashrc" and "mvn -version"
 
 # NOTE
 # setting environmental variables for maven (note ~/.bashrc means the file is in /home/ubuntu/.bashrc. 

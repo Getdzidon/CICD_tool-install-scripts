@@ -17,13 +17,13 @@ cd /opt
 
 # install and extract tomcat
 # be sure to check the lattest version https://tomcat.apache.org/whichversion.html && https://archive.apache.org/dist/tomcat/tomcat-9/
-sudo wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.95/bin/apache-tomcat-9.0.95.tar.gz
-sudo tar -xzvf apache-tomcat-9.0.95.tar.gz
+sudo wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.96/bin/apache-tomcat-9.0.96.tar.gz
+sudo tar -xzvf apache-tomcat-9.0.96.tar.gz
 
 # remove zip file and rename extracted file
 # The version name musst correspond with the version you runned above so ensure you make all changes
-sudo rm -rf apache-tomcat-9.0.95.tar.gz
-sudo mv apache-tomcat-9.0.95/ tomcat9
+sudo rm -rf apache-tomcat-9.0.96.tar.gz
+sudo mv apache-tomcat-9.0.96/ tomcat9
 
 
 # give executable permissions (Make sure the name of the tomcat dir matches as above)

@@ -9,21 +9,21 @@
 # 4. Deploying the application to Tomcat using Maven by running mvn tomcat7:deploy command
 
 # What the script does:
-# Step 1: Navigates to the ~/.m2 directory and creates the settings.xml file with the Tomcat server credentials.
+# Step 1: Navigate to the ~/.m2 directory and create the settings.xml file with the Tomcat server credentials.
 # Step 2: Edits the pom.xml file to add the Tomcat Maven plugin if it isn't already there.
-# Step 3: Runs the mvn tomcat7:deploy command to deploy your Maven project to Tomcat.
+# Step 3: Run the mvn tomcat7:deploy command to deploy your Maven project to Tomcat.
 
 # Variables (you can modify these as needed)
 USER=ubuntu # state your username
 M2_DIR="/home/${USER}/.m2"
-APP_DIR="/home/${USER}/web-app"
+APP_DIR="/home/${USER}/web-app" #make sure you change this name "web-app if that is not exactly the name of the directory containing your source code"
 SETTINGS_FILE="${M2_DIR}/settings.xml"
 POM_FILE="${APP_DIR}/pom.xml"  # Ensure you run the script from the root directory of your project
 TOMCAT_USERNAME="admin"  # Set your Tomcat username
 TOMCAT_PASSWORD="admin"  # Set your Tomcat password
 TOMCAT_SERVER_ID="TomcatServer"
 TOMCAT_URL="http://18.199.160.156:8080/manager/text"  # Change IP to your Tomcat server's IP if needed
-TOMCAT_PLUGIN_VERSION="2.2" #change the version where nessesary
+TOMCAT_PLUGIN_VERSION="2.2" #change the version where necessary
 
 # Step 1: Create settings.xml in the .m2 directory
 echo "Navigating to .m2 directory..."

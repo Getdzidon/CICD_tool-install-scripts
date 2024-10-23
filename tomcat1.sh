@@ -3,7 +3,7 @@
 # No2. ON TOMCAT SERVER
 # tomcat installation
 
-# update and upgrade of ubuntu
+# Update and upgrade Ubuntu
 sudo apt update -y
 sudo apt upgrade -y
 
@@ -12,16 +12,16 @@ cd /opt
 sudo apt install openjdk-11-jdk -y
 java -version
 
-# move to opt dir for instalation
+# move to opt dir for installation
 cd /opt
 
 # install and extract tomcat
-# be sure to check the lattest version https://tomcat.apache.org/whichversion.html && https://archive.apache.org/dist/tomcat/tomcat-9/
+# be sure to check the latest version https://tomcat.apache.org/whichversion.html && https://archive.apache.org/dist/tomcat/tomcat-9/
 sudo wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.96/bin/apache-tomcat-9.0.96.tar.gz
 sudo tar -xzvf apache-tomcat-9.0.96.tar.gz
 
-# remove zip file and rename extracted file
-# The version name musst correspond with the version you runned above so ensure you make all changes
+# remove the zip file and rename the extracted file
+# The version name must correspond with the version you ran above so ensure you make all changes
 sudo rm -rf apache-tomcat-9.0.96.tar.gz
 sudo mv apache-tomcat-9.0.96/ tomcat9
 
@@ -38,7 +38,7 @@ sudo starttomcat
 
 echo "Tomcat installation complete!"
 
-
+#The scrip proceeds to modify the context.xml and tomcat-users.xml files
 # Function to modify context.xml
 modify_context_xml() {
   context_xml_file="/opt/tomcat9/webapps/manager/META-INF/context.xml"
@@ -51,7 +51,7 @@ modify_context_xml() {
   echo "$context_xml_file has been modified."
 }
  
-# separating instalation with modifications 
+# Separating installation with modifications 
 
 # Function to modify the tomcat-users.xml file
 modify_tomcat_users_xml() {

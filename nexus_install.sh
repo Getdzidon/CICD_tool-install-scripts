@@ -71,6 +71,6 @@ echo "Waiting for Nexus to initialize..."
 sleep 30  # Allow time for Nexus to generate initial files
 
 echo "Initial admin password:"
-sudo cat ${DATA_DIR}/nexus3/admin.password # sudo cat /opt/sonatype-work/nexus3/admin.password
+sudo cat ${DATA_DIR}/nexus3/admin.password #Use the following command to get the innitial password: sudo cat /opt/sonatype-work/nexus3/admin.password
 
 echo "Nexus installation complete. Access it at http://<your-server-ip>:8081"

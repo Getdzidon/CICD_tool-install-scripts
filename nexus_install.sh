@@ -5,8 +5,8 @@
 
 # Variables
 NEXUS_VERSION="3.72.0-04"      # Set the version you want to install
-NEXUS_USER="nexus"   
-NEXUS_PASSWORD="admin"          # User to run Nexus
+NEXUS_USER="nexus"    # User to run Nexus
+NEXUS_PASSWORD="admin"          # Password to run Nexus
 INSTALL_DIR="/opt/nexus"       # Installation directory
 DATA_DIR="/opt/sonatype-work"  # Nexus data directory
 NEXUS_TAR="nexus-${NEXUS_VERSION}-unix.tar.gz"  # Nexus tar file name

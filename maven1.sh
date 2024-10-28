@@ -36,6 +36,7 @@ source /home/ubuntu/.bashrc
 mvn -version
 
 echo "Maven installation complete!"
+echo "If there is an error above, Please run 'source ~/.bashrc' again"
 
 # if you receive the error "mavin.sh: line 36: mvn: command not found", 
 # rerun "source /home/ubuntu/.bashrc" and "mvn -version"

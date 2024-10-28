@@ -16,9 +16,9 @@
 # Variables (you can modify these as needed)
 USER=ubuntu # state your username
 M2_DIR="/home/${USER}/.m2"
-APP_DIR="/home/${USER}/web-app" #make sure you change this name "web-app if that is not exactly the name of the directory containing your source code"
+SOURCE_CODE_DIR="/home/${USER}/web-app" #make sure you change this name "web-app if that is not exactly the name of the directory containing your source code"
 SETTINGS_FILE="${M2_DIR}/settings.xml"
-POM_FILE="${APP_DIR}/pom.xml"  # Ensure you run the script from the root directory of your project
+POM_FILE="${SOURCE_CODE_DIR}/pom.xml"  # Ensure you run the script from the root directory of your project
 TOMCAT_USERNAME="admin"  # Set your Tomcat username
 TOMCAT_PASSWORD="admin"  # Set your Tomcat password
 TOMCAT_SERVER_ID="TomcatServer"
@@ -44,7 +44,7 @@ EOL
 
 echo "settings.xml file created."
 
-cd $APP_DIR
+cd $SOURCE_CODE_DIR
 
 # Step 2: Update pom.xml to add Tomcat Maven Plugin
 if [ -f "$POM_FILE" ]; then

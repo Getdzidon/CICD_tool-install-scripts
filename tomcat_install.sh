@@ -8,7 +8,7 @@ sudo apt update -y && sudo apt upgrade -y
 
 #Variables
 TOMCAT_BASE_VERSION="tomcat-9"
-TOMCAT_VERSION="9.0.96"          # Set the version you want to install
+TOMCAT_VERSION="9.0.98"          # Set the version you want to install
 TOMCAT_FOLDER="tomcat9"          # Desired directory name for Tomcat
 TOMCAT_USER="admin"              # Admin username
 TOMCAT_PASSWORD="admin"           # Admin password
